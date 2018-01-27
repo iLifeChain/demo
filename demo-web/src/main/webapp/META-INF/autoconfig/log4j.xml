@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %p [%C.%M(%L)] - &lt;%m&gt;%n" />
+        </layout>
+    </appender>
+
+    <appender name="ROOT" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${com_ilifediary_blockchain_demo_log_root}/root.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <param name="threshold" value="${com_ilifediary_blockchain_demo_root_log_level}"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %p [%-5t:%c{4}(%L)] %m%n"/>
+        </layout>
+    </appender>
+
+    <logger name="com.ilifediary.blockchain.demo" additivity="false">
+        <level value="${com_ilifediary_blockchain_demo_root_log_level}"/>
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <root>
+        <priority value="DEBUG" />
+        <appender-ref ref="ROOT" />
+    </root>
+
+</log4j:configuration>

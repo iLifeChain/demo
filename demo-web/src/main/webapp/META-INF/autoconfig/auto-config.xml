@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <group name="log">
+        <property name="com.ilifediary.blockchain.demo.log.root"
+                  defaultValue="${user.home}/demo/logs" />
+        <property name="com.ilifediary.blockchain.demo.root.log.level"
+                  defaultValue="DEBUG" />
+    </group>
+
+    <group name="weibo">
+        <property name="com.ilifediary.weibo.appkey"
+                  defaultValue="3888428009" />
+        <property name="com.ilifediary.weibo.appsecret"
+                  defaultValue="da1543a0c1b968c5180ea92c93911fcf" />
+        <property name="com.ilifediary.weibo.redirect.uri"
+                  defaultValue="http://10.16.78.59/" />
+        <property name="com.ilifediary.weibo.base.url"
+                  defaultValue="https://api.weibo.com/2/" />
+        <property name="com.ilifediary.weibo.accesstoken.url"
+                  defaultValue="https://api.weibo.com/oauth2/access_token" />
+        <property name="com.ilifediary.weibo.authorize.url"
+                  defaultValue="https://api.weibo.com/oauth2/authorize" />
+        <property name="com.ilifediary.weibo.rm.url"
+                  defaultValue="https://rm.api.weibo.com/2/" />
+    </group>
+
+    <script>
+        <generate template="log4j.xml" destfile="WEB-INF/classes/log4j.xml"
+                  charset="UTF-8" />
+        <generate template="WEB-INF/classes/config.properties"
+                  destfile="WEB-INF/classes/config.properties" charset="UTF-8"/>
+        <generate template="WEB-INF/web.xml" destfile="WEB-INF/web.xml"
+                  charset="UTF-8" />
+    </script>
+</config>
